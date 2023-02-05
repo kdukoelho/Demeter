@@ -6,7 +6,7 @@ package demeter.classes.prototype;
 import java.util.List;
 
 public class Stock {
-    private List<Vegetable> stockList;    
+    private List<Vegetable> stockList;
     private Employee lastHandler;
     private String lastModification;
     
@@ -89,10 +89,10 @@ public class Stock {
         if (handler.getPermission().equals(Permissions.seller()) || handler.getPermission().equals(Permissions.manager())){            
             for (Vegetable vegInStockList : stockList){
                 Vegetable vegInOrderList = vegetableOrderList.get(vegInStockList.getId());
-                float ammountDiff = vegInStockList.getAmmountInKg() - vegInOrderList.getAmmountInKg();
+                float ammountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
                 if (ammountDiff <= 0){ // Taking the vegetable from stock list.
                      Employee system = new Employee(-419, null, Permissions.system());
-                     vegInOrderList.setAmmountInKg(vegInStockList.getAmmountInKg());
+                     vegInOrderList.setAmmountInKg(vegInStockList.getAmountInKg());
                      removeProduct(vegInStockList, system);
                 }
                 else {

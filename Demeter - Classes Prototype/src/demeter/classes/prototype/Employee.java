@@ -9,8 +9,8 @@ public class Employee {
     private String name;
     private String permission;
     private String lastLogin;
-    Employee(int lastGeneratedId, String name, String permission){
-        this.id = IdManipulator.generateNextId(lastGeneratedId);
+    Employee(int lastId, String name, String permission){
+        this.id = Id.generateNextId(lastId);
         this.name = name;
         this.permission = permission;
     }

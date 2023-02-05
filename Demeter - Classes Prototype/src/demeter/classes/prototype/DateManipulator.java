@@ -9,7 +9,7 @@ import java.util.Date;
 public class DateManipulator {
     public static String Now(){
         /**
-         * Take the system date and time and formats on a string.
+         * Return the system date and time and formats on a string.
          * @return Date-time string.
          * 
          * @author kdukoelho
