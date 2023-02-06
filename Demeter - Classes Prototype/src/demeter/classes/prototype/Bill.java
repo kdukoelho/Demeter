@@ -5,16 +5,14 @@ package demeter.classes.prototype;
 
 public class Bill extends IdObject{
     private boolean isPaid;
-    private final int id;
     private int orderId;
     private float billValue;
     private int installmentsTotal;
     private int paidInstallments; // Total number of paid installments.
     private Installment[] installmentsArray;
     
-    Bill(boolean isPaid, int lastId, int orderId, float billValue, int installmentsTotal){
-        this.isPaid = isPaid;
-        this.id = Id.generateNextId(lastId);
+    Bill(boolean isPaid, int orderId, float billValue, int installmentsTotal){
+        this.isPaid = isPaid; 
         this.orderId = orderId;
         this.billValue = billValue;
         this.installmentsTotal = installmentsTotal;
@@ -27,8 +25,7 @@ public class Bill extends IdObject{
         float installmentValue = billValue / installmentsTotal;
 
         for (int installmentEnum = 0; installmentEnum < installmentsTotal; installmentEnum++){
-            int installmentId = Id.getBiggerIdFromArray(installmentsArray);
-            Installment installment = new Installment(false, installmentId, this.id, installmentEnum, installmentValue);
+            Installment installment = new Installment(false, this.id, installmentEnum, installmentValue);
             installmentsArray[installmentEnum] = installment;
         }
     }

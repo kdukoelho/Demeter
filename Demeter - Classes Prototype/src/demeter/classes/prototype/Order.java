@@ -7,14 +7,12 @@ import java.util.List;
 
 
 public class Order extends IdObject{
-    private final int id;
     private final int idCostumer;
     private List<Vegetable> vegetableList;    
     private String[] addres = new String[4];
     private float totalValue;
     
     Order(int lastId, int idCostumer, String[] addres){
-        this.id = Id.generateNextId(lastId);
         this.idCostumer = idCostumer;
         this.addres = addres;
         this.totalValue = calculateTotal();

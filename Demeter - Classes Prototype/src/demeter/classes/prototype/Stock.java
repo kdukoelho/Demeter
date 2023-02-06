@@ -91,7 +91,7 @@ public class Stock {
                 Vegetable vegInOrderList = vegetableOrderList.get(vegInStockList.getId());
                 float ammountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
                 if (ammountDiff <= 0){ // Taking the vegetable from stock list.
-                     Employee system = new Employee(-419, null, Permissions.system());
+                     Employee system = new Employee(null, Permissions.system());
                      vegInOrderList.setAmmountInKg(vegInStockList.getAmountInKg());
                      removeProduct(vegInStockList, system);
                 }

@@ -4,7 +4,6 @@
 package demeter.classes.prototype;
 
 public class Vegetable extends IdObject{
-    private final int id;
     private String name;
     private String group;
     private float amountInKg;
@@ -12,7 +11,6 @@ public class Vegetable extends IdObject{
     private float totalValue; // R$
     
     Vegetable(int lastId, String name, String group, float amountInKg, float valuePerKg) {
-        this.id = Id.generateNextId(lastId);
         this.name = name;
         this.group = group;
         this.amountInKg = amountInKg;

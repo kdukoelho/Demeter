@@ -4,13 +4,11 @@
 
 package demeter.classes.prototype;
 
-public class Employee {
-    private final int id;
+public class Employee extends IdObject{
     private String name;
     private String permission;
     private String lastLogin;
-    Employee(int lastId, String name, String permission){
-        this.id = Id.generateNextId(lastId);
+    Employee(String name, String permission){
         this.name = name;
         this.permission = permission;
     }
@@ -24,7 +22,7 @@ public class Employee {
     // Getters.
     
     public int getId(){
-        return id;
+        return this.id;
     }
     
     public String getName(){
