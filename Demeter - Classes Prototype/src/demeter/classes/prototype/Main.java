@@ -6,13 +6,18 @@ package demeter.classes.prototype;
 public class Main {
 
     public static void main(String[] args) {
-        Employee[] objts = new Employee[3];
-        for (int i = 0; i < objts.length; i++){
-            Employee objt = new Employee("Carlos", Permissions.manager());
-            objts[i] = objt;
-        }
-        for (Employee objt : objts){
-            System.out.println(objt.getId());
-        }
+        Bill bill = setUpClass();
+       
+        boolean actualBillStatus = bill.getStatus();
+    
+        System.out.println(actualBillStatus);
+    }
+    
+    public static Bill setUpClass() {
+        boolean isPaid = false;
+        int orderId = 0;
+        float billValue = 255f;
+        int installments = 3;
+        return new Bill(isPaid, orderId, billValue, installments);
     }
 }

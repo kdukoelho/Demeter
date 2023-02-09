@@ -6,20 +6,13 @@ package demeter.classes.prototype;
 public class Installment extends IdObject{
     private boolean isPaid;
     private int billId;
-    private int installmentEnum;
+    private int id;
     private float value;
     private String paymentDate;
     
-    Installment(boolean isPaid, int billId, int intallmentEnum, float value){
+    Installment(boolean isPaid, int billId, float value){
         this.isPaid = isPaid;
-        this.installmentEnum = installmentEnum;
         this.value = value;
-    }
-    
-    // Getters.
-    
-    public int getInstallmentEnum(){
-        return installmentEnum;
     }
     
     // Setters.

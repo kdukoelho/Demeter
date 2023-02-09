@@ -15,12 +15,12 @@ public class Vegetable extends IdObject{
         this.group = group;
         this.amountInKg = amountInKg;
         this.valuePerKg = valuePerKg;
-        this.totalValue = calculateTotal();
+        this.totalValue = calculateTotalValue();
     }
     
     // Functions.
     
-    private float calculateTotal(){
+    private float calculateTotalValue(){
         /**
          * Calculates the vegetable value based on value in cash and the amount in kilogram.
          * valuePerKg * ammountInKg
