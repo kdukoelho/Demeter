@@ -44,8 +44,7 @@ public class CostumerTest {
     public void getAddres_Should_return_costumer_addres_object() {
         Object actual = costumer.getAddres();
         
-            assertTrue(actual instanceof Addres);
-           
+        assertTrue(actual instanceof Addres);
     }
     
 }
