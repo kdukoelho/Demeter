@@ -12,13 +12,7 @@ public class Employee extends IdObject{
         this.name = name;
         this.permission = permission;
     }
-    
-    // Functions.
-    
-    public void setLastLogin(){
-        this.lastLogin = DateManipulator.Now();
-    }
-    
+        
     // Getters.
     
     public int getId(){
@@ -35,5 +29,11 @@ public class Employee extends IdObject{
     
     public String getLastLogin(){
         return lastLogin;
+    }
+    
+    // Setters.
+    
+    public void setLastLogin(){
+        this.lastLogin = DateManipulator.dateTime_Now();
     }
 }
