@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/test/demeter/classes/prototype/BillTest.java</file>
-            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Installment.java</file>
-            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Main.java</file>
-            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Bill.java</file>
+            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Order.java</file>
+            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Permissions.java</file>
+            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/test/demeter/classes/prototype/OrderTest.java</file>
+            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/test/demeter/classes/prototype/StockTest.java</file>
+            <file>file:/C:/Users/Cadu/Desktop/My%20Files/Programs/Deméter/Demeter%20-%20Classes%20Prototype/src/demeter/classes/prototype/Stock.java</file>
         </group>
     </open-files>
 </project-private>
