@@ -8,12 +8,12 @@ public class Costumer extends IdObject{
     private String name;
     private String email;
     private String phoneNumber;
-    private String[] addres = new String[4];
-    Costumer(String name, String email, String phoneNumber, String city, String district, String street, String houseNum){
+    private Addres addres;
+    Costumer(String name, String email, String phoneNumber, String state, String city, String neighborhood, String street, String houseNum){
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.addres[0] = city; this.addres[1] = district; this.addres[2] = street; this.addres[3] = houseNum;
+        this.addres = new Addres(this.id, state, city, neighborhood, street,houseNum);
     }
     
     // Getters.
@@ -30,7 +30,7 @@ public class Costumer extends IdObject{
         return phoneNumber;
     }
     
-    public String[] getAddres(){
+    public Addres getAddres(){
         return addres;
     }
 }
