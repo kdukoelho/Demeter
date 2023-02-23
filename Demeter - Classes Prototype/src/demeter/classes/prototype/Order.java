@@ -50,7 +50,7 @@ public class Order extends IdObject{
     
     public void addProduct(Vegetable vegetable, float resquestedAmmount){
         if (vegetable.getAmountInKg() > resquestedAmmount){
-            vegetable.setAmmountInKg(resquestedAmmount);
+            vegetable.setAmountInKg(resquestedAmmount);
             vegetableList.add(vegetable);
             this.totalValue = calculateTotal();
         }
@@ -73,7 +73,7 @@ public class Order extends IdObject{
         
         vegetableList.remove(toExcludeVeg);
         if (requestedAmmountToExclude > 0) {
-            toExcludeVeg.setAmmountInKg(newAmmount);
+            toExcludeVeg.setAmountInKg(newAmmount);
             vegetableList.add(toExcludeVeg);
         }
     }

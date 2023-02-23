@@ -55,7 +55,7 @@ public class OrderTest {
     public void removeProduct_Should_remove_an_especific_ammount_of_product_from_order_list(){
         order.removeProduct(1, 2);
         
-        vegetableArray[1].setAmmountInKg(1.5f);
+        vegetableArray[1].setAmountInKg(1.5f);
         Vegetable[] expectedArray = {vegetableArray[0], vegetableArray[1], vegetableArray[2]};
         Vegetable[] actualArray = (Vegetable[]) order.getVegetableList().toArray(expectedArray);
         
