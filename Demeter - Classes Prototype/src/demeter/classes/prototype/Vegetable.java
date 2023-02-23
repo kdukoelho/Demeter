@@ -32,7 +32,7 @@ public class Vegetable extends IdObject{
         return amountInKg;
     }
     
-    public float getValuerPerKg(){
+    public float getValuePerKg(){
         return valuePerKg;
     }
     
@@ -42,13 +42,13 @@ public class Vegetable extends IdObject{
     
     // Setters.
     
-    public void setAmmountInKg(float newAmmount){
-        this.amountInKg = newAmmount;
+    public void setAmountInKg(float newAmount){
+        this.amountInKg = newAmount;
     }
     
     // Functions.
     
-    private float calculateTotalValue(){
+    public float calculateTotalValue(){
         /**
          * Calculates the vegetable value based on value in cash and the amount in kilogram.
          * valuePerKg * ammountInKg
