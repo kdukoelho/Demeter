@@ -10,29 +10,12 @@ public class Vegetable extends IdObject{
     private float valuePerKg;
     private float totalValue; // R$
     
-    Vegetable(int lastId, String name, String group, float amountInKg, float valuePerKg) {
+    Vegetable(String name, String group, float amountInKg, float valuePerKg) {
         this.name = name;
         this.group = group;
         this.amountInKg = amountInKg;
         this.valuePerKg = valuePerKg;
         this.totalValue = calculateTotalValue();
-    }
-    
-    // Functions.
-    
-    private float calculateTotalValue(){
-        /**
-         * Calculates the vegetable value based on value in cash and the amount in kilogram.
-         * valuePerKg * ammountInKg
-         * 
-         * @return Total value in cash of the vegetable. (return 0 if amountInKg or valuePerKg be 0).
-         */
-        if (amountInKg > 0 && valuePerKg > 0){
-            return amountInKg * valuePerKg;
-        }
-        else{
-            return 0;
-        }
     }
     
     // Getters.
@@ -62,4 +45,23 @@ public class Vegetable extends IdObject{
     public void setAmmountInKg(float newAmmount){
         this.amountInKg = newAmmount;
     }
+    
+    // Functions.
+    
+    private float calculateTotalValue(){
+        /**
+         * Calculates the vegetable value based on value in cash and the amount in kilogram.
+         * valuePerKg * ammountInKg
+         * 
+         * @return Total value in cash of the vegetable. (return 0 if amountInKg or valuePerKg be 0).
+         */
+        if (amountInKg > 0 && valuePerKg > 0){
+            return amountInKg * valuePerKg;
+        }
+        else{
+            return 0;
+        }
+    }
+    
+    
 }
