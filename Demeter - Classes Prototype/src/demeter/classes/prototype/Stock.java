@@ -96,11 +96,11 @@ public class Stock {
                 float ammountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
                 if (ammountDiff <= 0){ // Taking the vegetable from stock list.
                      Employee system = new Employee(null, Permissions.system());
-                     vegInOrderList.setAmmountInKg(vegInStockList.getAmountInKg());
+                     vegInOrderList.setAmountInKg(vegInStockList.getAmountInKg());
                      removeProduct(vegInStockList, system);
                 }
                 else {
-                    vegInStockList.setAmmountInKg(ammountDiff);
+                    vegInStockList.setAmountInKg(ammountDiff);
                 }
             }
         }
