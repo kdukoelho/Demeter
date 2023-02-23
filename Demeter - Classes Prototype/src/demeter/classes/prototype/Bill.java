@@ -35,14 +35,14 @@ public class Bill extends IdObject{
         if(!isPaid){
             for (Installment installment : installmentsArray){
                 if(installment.getId()  == paidInstallments + 1){
-                    installment.setIsPaid(true);
+                    installment.setStatus(true);
                     installment.setPaymentDate("");
                     this.paidInstallments++;
                     break;
                 }
             }
-            if (this.paidInstallments == this.installmentsTotal){
-                this.isPaid = true;
+            if (paidInstallments == installmentsTotal){
+                isPaid = true;
             }
         }
     }
