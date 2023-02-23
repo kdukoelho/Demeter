@@ -10,23 +10,27 @@ public class Stock {
     private Employee lastHandler;
     private String lastModification;
     
+    // Getters.
     
+    public List<Vegetable> getStockList(){
+        return stockList;
+    }
+        
     // Stockist functions.
     
-    public void addProduct(Vegetable vegetable, Employee handler){
-        /**
+    /**
          * Add the product in the stock list if the handler is a stockist or manager.
          * 
-         * @param vegetable     Product to be removed.
+         * @param vegetable     Product to be added.
          * @param handler       Employee that are executing the operation.
          * 
          * @author kdukoelho
          */
-        
-        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager())){
+    public void addProduct(Vegetable vegetable, Employee handler){
+        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){
             stockList.add(vegetable);
             this.lastHandler = handler;
-            this.lastModification = String.format("Product: %s:%s added by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.Now());
+            this.lastModification = String.format("Product: %s:%s added by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.dateTime_Now());
         }
         else {
             System.out.println("You have no permission to execute this operation.");
@@ -43,10 +47,10 @@ public class Stock {
          * @author kdukoelho
          */
         
-        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager())){
+        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){
             stockList.remove(vegetable);
             this.lastHandler = handler;
-            this.lastModification = String.format("Product: %s:%s removed by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.Now());
+            this.lastModification = String.format("Product: %s:%s removed by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.dateTime_Now());
         }
         else {
             System.out.println("You have no permission to execute this operation.");
@@ -65,7 +69,7 @@ public class Stock {
          * @author kdukoelho
          */
         
-        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager())){
+        if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){
             stockList.set(vegetableIndex, vegetable);
         }
         else {
@@ -86,7 +90,7 @@ public class Stock {
          * @author kdukoelho
          */
         
-        if (handler.getPermission().equals(Permissions.seller()) || handler.getPermission().equals(Permissions.manager())){            
+        if (handler.getPermission().equals(Permissions.seller()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){            
             for (Vegetable vegInStockList : stockList){
                 Vegetable vegInOrderList = vegetableOrderList.get(vegInStockList.getId());
                 float ammountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
@@ -103,11 +107,5 @@ public class Stock {
         else {
             System.out.println("You have no permission to execute this operation.");
         }
-    }
-    
-    // Getters.
-    
-    public List<Vegetable> getStockList(){
-        return stockList;
     }
 }
