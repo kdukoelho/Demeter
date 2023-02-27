@@ -3,10 +3,11 @@
  */
 package demeter.classes.prototype;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Stock {
-    private List<Vegetable> stockList;
+    private List<Vegetable> stockList = new ArrayList<>();
     private Employee lastHandler;
     private String lastModification;
     
@@ -25,19 +26,20 @@ public class Stock {
          * @param handler       Employee that are executing the operation.
          * 
          * @author kdukoelho
+         * @throws demeter.classes.prototype.NoPermissionException
          */
-    public void addProduct(Vegetable vegetable, Employee handler){
+    public void addProduct(Vegetable vegetable, Employee handler) throws NoPermissionException {
         if (handler.getPermission().equals(Permissions.stockist()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){
             stockList.add(vegetable);
             this.lastHandler = handler;
             this.lastModification = String.format("Product: %s:%s added by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.dateTime_Now());
         }
         else {
-            System.out.println("You have no permission to execute this operation.");
+            throw new NoPermissionException(handler);
         }
     }
     
-    public void removeProduct(Vegetable vegetable, Employee handler){
+    public void removeProduct(Vegetable vegetable, Employee handler) throws NoPermissionException{
         /**
          * Removes the product from the stock list if the handler is a stockist or manager.
          * 
@@ -53,12 +55,12 @@ public class Stock {
             this.lastModification = String.format("Product: %s:%s removed by %s:%s at %s", vegetable.getId(), vegetable.getName(), handler.getId(), handler.getName(), DateManipulator.dateTime_Now());
         }
         else {
-            System.out.println("You have no permission to execute this operation.");
+            throw new NoPermissionException(handler);
         }
         
     }
     
-    public void editProduct(int vegetableIndex, Vegetable vegetable, Employee handler){
+    public void editProduct(int vegetableIndex, Vegetable vegetable, Employee handler) throws NoPermissionException{
         /**
          * Replaces the product with a new object if the handler is a stockist or manager.
          * 
@@ -73,13 +75,13 @@ public class Stock {
             stockList.set(vegetableIndex, vegetable);
         }
         else {
-            System.out.println("You have no permission to execute this operation.");
+            throw new NoPermissionException(handler);
         }
     }
     
     // Seller functions.
     
-    public void confirmOrder(List<Vegetable> vegetableOrderList, Employee handler){
+    public void confirmOrder(List<Vegetable> orderList, Employee handler) throws NoPermissionException{
         /**
          * If the amount of vegetables in stock is less than the amount requested in the order, it removes the vegetable from the stock list.
          * Otherwise, calculates the difference between the amount of vegetables requested in the order and present in the stock list, and defines how the new amount of vegetable in stock.
@@ -91,21 +93,23 @@ public class Stock {
          */
         
         if (handler.getPermission().equals(Permissions.seller()) || handler.getPermission().equals(Permissions.manager()) || handler.getPermission().equals(Permissions.system())){            
-            for (Vegetable vegInStockList : stockList){
-                Vegetable vegInOrderList = vegetableOrderList.get(vegInStockList.getId());
-                float ammountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
-                if (ammountDiff <= 0){ // Taking the vegetable from stock list.
-                     Employee system = new Employee(null, Permissions.system());
+            for (Vegetable vegInOrderList : orderList){
+                Vegetable vegInStockList = stockList.get(stockList.indexOf(vegInOrderList));
+                
+                float amountDiff = vegInStockList.getAmountInKg() - vegInOrderList.getAmountInKg();
+                
+                if (amountDiff <= 0){ // Taking the vegetable from stock list.
+                     Employee system = new Employee("SYSTEM", Permissions.system());
                      vegInOrderList.setAmountInKg(vegInStockList.getAmountInKg());
                      removeProduct(vegInStockList, system);
                 }
                 else {
-                    vegInStockList.setAmountInKg(ammountDiff);
+                    vegInStockList.setAmountInKg(amountDiff);
                 }
             }
         }
         else {
-            System.out.println("You have no permission to execute this operation.");
+            throw new NoPermissionException(handler);
         }
     }
 }
