@@ -13,7 +13,7 @@ public class Order extends IdObject{
     private Addres addres;
     private float totalValue;
     
-    Order(int idCostumer){
+    Order(int idCostumer, Addres addres){
         this.idCostumer = idCostumer;
         this.addres = addres;
     }
