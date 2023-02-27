@@ -21,7 +21,7 @@ public class OrderTest {
     @Before
     public void setUp() {
         System.out.println("setUp");
-        this.order = new Order(0);
+        this.order = new Order(0, new Addres(0, "DF", "Brasilia", "Asa Norte", "SQN 415", "402"));
         this.vegetableArray = vegetableArrayClone;
                                
         for (Vegetable veg : vegetableArray){
